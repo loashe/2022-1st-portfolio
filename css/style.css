@@ -28,6 +28,7 @@ body{
   background-color: darkslateblue;
   /* background-color:#637592; */
   cursor: url("../img/mouse_default.png"), auto;
+  overflow-x: hidden;
 }
 ul,ol,li{
   list-style-type: none;
@@ -117,6 +118,20 @@ a:hover,  a:focus, a:active{
   display: inline-block;
 }
 
+/* 로딩화면 */
+#loadingScreen{
+  font-size: 5rem;
+  width: 100%;
+  height: 100vh;
+  background-color:#211f31;
+  position: fixed;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
 /* 인트로 페이지 */
 #introPage{
   width: 100%;
@@ -133,6 +148,19 @@ a:hover,  a:focus, a:active{
 }
 #introPage .pageTitle{
   color: white;
+  animation-name: titleIntro;
+  animation-duration: 2s;
+  animation-delay: 4.5s;
+}
+@keyframes titleIntro {
+  from{
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 #introPage .pageTitle::before,
 #introPage .pageTitle::after{
@@ -224,18 +252,27 @@ a:hover,  a:focus, a:active{
   padding-left: 20px;
   position: absolute;
 }
-#profile .profile{
-  line-height: 50px;
-  white-space: nowrap;
-  height: 150px;
+#profile .name{
+  font-size: 3rem;
+  line-height: 4rem;
+  width: 40%;
+  padding-left: 20px;
+  position: absolute;
   top: 0;
+  right: 0;
+}
+#profile .profile{
+  line-height: 40px;
+  white-space: nowrap;
+  height: 160px;
+  top: 4rem;
   right: 0;
 }
 #profile .selfIntroduction{
   line-height: 30px;
   font-weight: 400;
-  height: 225px;
-  top: 175px;
+  height: 190px;
+  top: 21rem;
   right: 0;
 }
 #profile::after{
@@ -342,6 +379,7 @@ a:hover,  a:focus, a:active{
 /* 포트폴리오 */
 #portfolio{
   margin: 100px 0;
+  position: relative;
 }
 #portfolio .portfolioList{
   width: 80%;
@@ -407,6 +445,32 @@ a:hover,  a:focus, a:active{
   font-weight: 400;
   width: 45%;
 }
+#portfolio::before{
+  content: "◇";
+  font-size: 800px;
+  font-weight: 400;
+  line-height: 800px;
+  opacity: 0.2;
+  position: absolute;
+  left: 85%;
+  top: 50%;
+  transform: translate(-50%,-65%);
+  z-index: -99;
+}
+#portfolio::after{
+  content: "★";
+  color: cyan;
+  font-size: 100px;
+  line-height: 100px;
+  opacity: 0.2;
+  position: absolute;
+  bottom: -150px;
+  left: 5%;
+  transform: translate(-50%,-50%);
+  animation-name: mailColor;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
 
 /* 연락처 */
 
@@ -469,11 +533,13 @@ a:hover,  a:focus, a:active{
   font-size: 3rem;
   font-weight: 400;
   line-height: 4rem;
+  z-index: 20;
 }
 #address .githubCat{
   position: absolute;
   bottom: -110px;
-  right: 0;
+  left: 85%;
+  transform: translateX(-50%);
 }
 #address .hiddenText{
   display: inline-block;
@@ -485,7 +551,8 @@ a:hover,  a:focus, a:active{
   opacity: 0.2;
   position: absolute;
   bottom: -80px;
-  right: 300px;
+  left: 65%;
+  transform: translateX(-50%);
   user-select: none;
 }
 #address .githubCat img{
