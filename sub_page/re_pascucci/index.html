@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카페 파스쿠찌</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header id="header">
+    <ul class="headerSnsLink">
+      <li><a href="#" class="link">Facebook</a></li>
+      <li><a href="#" class="link">Blog</a></li>
+      <li><a href="#" class="link">Instagram</a></li>
+      <li><a href="#" class="link">Youtube</a></li>
+      <li><a href="#" class="link">해피포인트</a></li>
+    </ul>
+    <!-- 내비 -->
+    <nav id="navi">
+      <!-- 메인 로고 -->
+      <h1 id="mainLogo">
+        <a href="#">
+          <img src="img/h1_logo.png" alt="카페 파스쿠찌">
+        </a>
+      </h1>
+      <ul class="naviList">
+        <li>
+          <a href="#" class="link">ESPRESSO BAR</a>
+          <ul class="naviListDepth2">
+            <li><a href="#" class="link">ESPRESSO BAR</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="link">CAFFE PASCUCCI</a>
+          <ul class="naviListDepth2">
+            <li><a href="#" class="link">브랜드 소개</a></li>
+            <li><a href="#" class="link">커피 & 컬쳐</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="link">MENU</a>
+          <ul class="naviListDepth2">
+            <li><a href="#" class="link">Coffee</a></li>
+            <li><a href="#" class="link">Beverage</a></li>
+            <li><a href="#" class="link">Food</a></li>
+            <li><a href="#" class="link">MD</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="link">NEWS</a>
+          <ul class="naviListDepth2">
+            <li><a href="#" class="link">공지사항</a></li>
+            <li><a href="#" class="link">이벤트</a></li>
+            <li><a href="#" class="link">파스쿠찌 talk</a></li>
+            <li><a href="#" class="link">홍보센터</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="link">STORE</a>
+          <ul class="naviListDepth2">
+            <li><a href="#" class="link">매장안내</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="link">CUSTOMER</a>
+          <ul class="naviListDepth2">
+            <li><a href="#" class="link">제휴안내</a></li>
+            <li><a href="#" class="link">자주하는질문</a></li>
+            <li><a href="#" class="link">1:1문의하기</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="link">가맹사업안내</a></li>
+      </ul>
+    </nav>
+    <!-- 햄버거 버튼 -->
+    <input type="checkbox" id="hamburgerButton">
+    <label for="hamburgerButton">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </header>
+  <!-- 박스 -->
+  <div id="headerPlaceholder"></div>
+  <!-- 메인 배너 -->
+  <section id="mainBanner">
+    <div class="container">
+      <ul class="bannerList">
+        <li><a href="#"><img src="img/main_banner.png" alt=""></a></li>
+        <li><a href="#"><img src="img/main_banner2.png" alt=""></a></li>
+        <li><a href="#"><img src="img/main_banner3.png" alt=""></a></li>
+      </ul>
+    </div>
+    <a href="#" class="bannerControl">
+      <img src="img/arrow_left_white.png" alt="이전 배너">
+    </a>
+    <a href="#" class="bannerControl">
+      <img src="img/arrow_right_white.png" alt="다음 배너">
+    </a>
+  </section>
+  <!-- 매장 검색 -->
+  <section id="findPascucci">
+    <form class="searchForm">
+      <h2>매장 찾기</h2>
+      <p>주변 매장을 검색해보세요.</p>
+      <input type="text" placeholder="매장명 또는 주소를 입력하세요." required>
+      <button type="submit">SEARCH</button>
+    </form>
+  </section>
+  <!-- 메뉴 -->
+  <section id="menu">
+    <div class="container">
+      <h3 class="title">MENU</h3>
+      <ul class="menuList">
+        <li>
+          <a href="#" class="link">
+            <p>에스프레소</p>
+            <p>Espresso</p>
+            <img src="img/에스프레소.jpg" alt="에스프레소">
+          </a>
+        </li>
+        <li>
+          <a href="#" class="link">
+            <p>아메리카노</p>
+            <p>Americano</p>
+            <img src="img/아메리카노.jpg" alt="아메리카노">
+          </a>
+        </li>
+        <li>
+          <a href="#" class="link">
+            <p>카푸치노</p>
+            <p>Capuccino</p>
+            <img src="img/카푸치노.jpg" alt="카푸치노">
+          </a>
+        </li>
+        <li>
+          <a href="#" class="link">+ MORE</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- 유튜브 -->
+  <section id="youtubeChannel">
+    <div class="container">
+      <h3 class="title">CHANNEL</h3>
+      <ul class="videoList">
+        <li>
+          <iframe src="https://www.youtube.com/embed/vaKPc8ps2X4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+        <li>
+          <iframe src="https://www.youtube.com/embed/LG_1JxTmIJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+        <li>
+          <iframe src="https://www.youtube.com/embed/ds4-2FUizPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+        <li>
+          <a href="#">+ MORE</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- 인스타 -->
+  <section id="instagram">
+    <div class="container">
+      <h3 class="title">PASCUCCI</h3>
+      <h4>스토리를 마시는 일상, 카페 파스쿠찌</h4>
+      <ul class="instaList">
+        <li><a href="#"><img src="img/insta1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/insta2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/insta3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/insta4.jpg" alt=""></a></li>
+      </ul>
+    </div>
+  </section>
+  <!-- 푸터 -->
+  <footer id="footer">
+    <div class="container">
+      <h1 class="footerLogo">
+        <img src="img/foot_logo.png" alt="푸터 로고">
+      </h1>
+      <ul class="footerLink">
+        <li><a href="#" class="link">해피포인트</a></li>
+        <li><a href="#" class="link">개인정보 처리방침</a></li>
+        <li><a href="#" class="link">영상정보처리기기운영·관리방침</a></li>
+        <li><a href="#" class="link">이용약관</a></li>
+        <li><a href="#" class="link">윤리신고센터</a></li>
+        <li><a href="#" class="link">거래희망사전등록</a></li>
+      </ul>
+      <p class="address">
+        (주)파리크라상 사업자등록 번호:129-81-07244<br>
+        경기도 성남시 중원구 사기막골로31번길 18<br>
+        FAX. 0505-073-0210 고객상담센터 080-731-2027
+      </p>
+      <p class="copyright">
+        ⓒ 2022 The Pascucci Paris. All Rights Reserved.
+      </p>
+      <input type="checkbox" id="familySite">
+      <label for="familySite">FAMILY SITE +</label>
+      <div class="familySiteListContainer">
+        <ul class="familySitelist">
+          <li><a href="#" class="link">SPC그룹</a></li>
+          <li><a href="#" class="link">던킨도너츠</a></li>
+          <li><a href="#" class="link">배스킨라빈스 31</a></li>
+          <li><a href="#" class="link">해피포인트카드</a></li>
+          <li><a href="#" class="link">파리바게뜨</a></li>
+          <li><a href="#" class="link">파리크라상</a></li>
+          <li><a href="#" class="link">해피콘</a></li>
+          <li><a href="#" class="link">SPC컬리너리 아카데미</a></li>
+          <li><a href="#" class="link">파스쿠찌 이탈리아</a></li>
+        </ul>
+      </div>
+      <ul class="footerSnsLink">
+        <li><a href="#"><img src="img/facebook_white.png" alt="공식 페이스북 링크"></a></li>
+        <li><a href="#"><img src="img/blog_white.png" alt="공식 블로그 링크"></a></li>
+        <li><a href="#"><img src="img/instagram_white.png" alt="공식 인스타그램 링크"></a></li>
+        <li><a href="#"><img src="img/youtube_white.png" alt="공식 유튜브 링크"></a></li>
+      </ul>
+      <ul class="awardList">
+        <li><a href="#"><img src="img/award.png" alt="2016 &AWARD GRAND PRIX"></a></li>
+        <li><a href="#"><img src="img/CCM.png" alt="CCM"></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- 자바스크립트 -->
+  <script src="js/mainbanner.js"></script>
+  <script src="js/hamburger.js"></script>
+</body>
+
+</html>

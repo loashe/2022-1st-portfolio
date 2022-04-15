@@ -1,0 +1,990 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@font-face {
+  font-family: 'GongGothicBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  color: white;
+  background-color: #314b0a;
+}
+
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title {
+  color: #2C2A29;
+  font-size: 12rem;
+  font-family: 'GongGothicBold';
+}
+
+.title::after {
+  content: ".";
+  color: #d50037;
+  margin-left: 1rem;
+}
+
+
+
+/* 헤더 */
+
+#header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+#header .headerSnsLink {
+  width: 100%;
+  height: 40px;
+  background-color: #f6f5ef;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+  align-items: center;
+  padding-right: 5%;
+  gap: 3rem;
+}
+
+#header .headerSnsLink .link:link,
+#header .headerSnsLink .link:visited {
+  color: #111;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+#header .headerSnsLink .link:hover {
+  color: #d50037;
+}
+
+#header .headerSnsLink li:not(:last-child) .link::before {
+  display: inline-block;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+#header .headerSnsLink li:nth-of-type(1) .link::before {
+  background-image: url("../img/facebook_black.png");
+}
+
+#header .headerSnsLink li:nth-of-type(2) .link::before {
+  background-image: url("../img/blog_black.png");
+}
+
+#header .headerSnsLink li:nth-of-type(3) .link::before {
+  background-image: url("../img/instagram_black.png");
+}
+
+#header .headerSnsLink li:nth-of-type(4) .link::before {
+  background-image: url("../img/youtube_black.png");
+}
+
+/* 내비 */
+
+#navi {
+  width: 100%;
+  height: 80px;
+  background-color: #2C2A29;
+  position: relative;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+
+#navi ::selection{
+  color: white;
+  background-color: #d50037;
+}
+
+#navi:hover {
+  height: 280px;
+}
+
+#navi #mainLogo a img {
+  width: 160px;
+  height: 37.5px;
+  position: absolute;
+  top: 40px;
+  transform: translateY(-50%);
+  margin-left: 20px;
+}
+
+#navi .naviList {
+  width: calc(100% - 200px);
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#navi .naviList li {
+  text-align: center;
+  flex-basis: calc(100%/7);
+  flex-grow: 1;
+}
+
+#navi .naviList > li > a{
+  display: inline-block;
+  line-height: 80px;
+  height: 80px;
+  user-select: none;
+}
+
+#navi .naviList .link {
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+#navi .naviList .link:hover {
+  color: #d50037;
+}
+
+#navi .naviList .naviListDepth2{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#navi .naviList .naviListDepth2 li .link:link,
+#navi .naviList .naviListDepth2 li .link:visited{
+  font-size: 1.5rem;
+  color: #999;
+}
+#navi .naviList .naviListDepth2 li .link:hover{
+  color: #d50037;
+}
+
+/* 내비 햄버거 */
+#hamburgerButton,
+#hamburgerButton ~ label{
+  display: none;
+}
+
+
+/* 박스 */
+
+#headerPlaceholder {
+  width: 100%;
+  height: 120px;
+}
+
+/* 메인 배너 */
+
+#mainBanner {
+  width: 100vw;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #0e0e0e;
+}
+
+#mainBanner .container {
+  overflow: hidden;
+}
+
+#mainBanner .bannerList {
+  display: flex;
+  width: 300%;
+  transition: all 0.2s;
+}
+
+#mainBanner .bannerList li {
+  width: 100%;
+}
+
+#mainBanner .bannerList li img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: -4px;
+}
+#mainBanner .bannerControl{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#mainBanner .bannerControl:first-of-type{
+  right: 92%;
+}
+#mainBanner .bannerControl:last-of-type{
+  left: 92%;
+}
+#mainBanner .bannerControl img{
+  width: 50px;
+  height: 50px;
+}
+
+/* 매장 찾기 */
+
+#findPascucci {
+  width: 100vw;
+  height: 420px;
+  background-color: #0e0e0e;
+}
+
+#findPascucci .searchForm {
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+  background-image: url("../img/bg_search.png");
+  background-size: cover;
+  position: relative;
+}
+
+#findPascucci .searchForm h2 {
+  color: white;
+  font-size: 3.2rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 100px 0 20px 0;
+}
+
+#findPascucci .searchForm p {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#findPascucci .searchForm input {
+  font-size: 1.6rem;
+  width: 700px;
+  height: 50px;
+  padding-left: 15px;
+  border: none;
+  margin-top: 30px;
+  position: absolute;
+  left: calc(50% - 50px);
+  transform: translateX(-50%);
+}
+
+#findPascucci .searchForm button {
+  color: white;
+  background-color: #d50037;
+  width: 100px;
+  height: 50px;
+  border: none;
+  margin-top: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(300px);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* 메뉴 */
+
+#menu {
+  width: 100%;
+  height: 700px;
+  padding: 100px 0;
+}
+
+#menu .menuList {
+  display: flex;
+  flex-flow: row wrap-reverse;
+  justify-content: end;
+}
+
+#menu .menuList li:not(:last-of-type) {
+  width: calc(100% / 3);
+  height: 350px;
+  text-align: center;
+}
+
+#menu .menuList li .link:link,
+#menu .menuList li .link:visited {
+  font-size: 2rem;
+  color: black;
+}
+
+#menu .menuList li .link:hover {
+  color: #d50037;
+}
+
+#menu .menuList li img {
+  width: 75%;
+  height: 82.5%;
+  margin: 0 auto;
+  user-select: none;
+}
+
+#menu .menuList li:last-of-type {
+  transform: translateY(-200%);
+}
+
+/* 유튜브 */
+
+#youtubeChannel {
+  height: 650px;
+  padding: 100px 0;
+  margin: 0 auto;
+}
+
+#youtubeChannel .videoList {
+  display: flex;
+  flex-flow: row wrap-reverse;
+  justify-content: end;
+}
+
+#youtubeChannel .videoList li:not(:last-of-type) {
+  width: calc(100% / 3);
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+#youtubeChannel .videoList li iframe {
+  width: 95%;
+  max-width: 400px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#youtubeChannel .videoList li:last-of-type {
+  transform: translateY(calc(-200% + 5px));
+}
+
+#youtubeChannel .videoList li:last-of-type a:link,
+#youtubeChannel .videoList li:last-of-type a:visited {
+  color: black;
+  font-size: 2rem;
+}
+
+#youtubeChannel .videoList li:last-of-type a:hover {
+  color: #d50037;
+}
+
+
+/* 인스타 */
+
+#instagram {
+  height: 750px;
+  padding: 100px 0;
+  margin: 0 auto;
+  background-image: url("../img/bg_camera.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+#instagram h4 {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 300;
+  font-style: italic;
+  margin: 25px 0;
+}
+
+#instagram .instaList {
+  display: flex;
+  justify-content: center;
+}
+
+#instagram .instaList li {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+#instagram .instaList li img {
+  width: 100%;
+  height: 100%;
+}
+
+#instagram .instaList li a::after {
+  display: block;
+  content: "";
+  background-color: rgba(255, 255, 255, .4);
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+#instagram .instaList li:hover a::after {
+  opacity: 1;
+}
+
+/* 푸터 */
+
+#footer {
+  color: white;
+  font-size: 1.3rem;
+  width: 100%;
+  height: 250px;
+  background-color: #2C2A29;
+}
+
+#footer ::selection {
+  color: white;
+  background-color: #d50037;
+}
+
+#footer img {
+  user-select: none;
+}
+
+#footer .footerLogo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#footer .footerLink {
+  display: inline-flex;
+  gap: 10px;
+  position: absolute;
+  left: 90px;
+  top: 50%;
+  transform: translateY(-60px);
+}
+
+#footer .footerLink li:not(:last-of-type)::after {
+  content: "|";
+  margin-left: 10px;
+}
+
+#footer .footerLink li a:link,
+#footer .footerLink li a:visited {
+  color: white;
+}
+
+#footer .footerLink li a:hover {
+  color: #d50037;
+}
+
+#footer .address {
+  position: absolute;
+  left: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#footer .copyright {
+  position: absolute;
+  left: 90px;
+  bottom: 50%;
+  transform: translateY(50px);
+}
+
+#footer #familySite {
+  display: none;
+}
+
+#footer #familySite~label {
+  display: inline-block;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 50px;
+  width: 200px;
+  height: 50px;
+  background-color: #d50037;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: 0;
+  top: 15%;
+}
+
+#familySite:checked~.familySiteListContainer {
+  height: 450px;
+}
+
+#familySite:checked~.familySiteListContainer>.familySitelist {
+  transform: translateY(0);
+}
+
+#footer .familySiteListContainer {
+  display: inline-block;
+  width: 200px;
+  height: 1px;
+  position: absolute;
+  bottom: 85%;
+  right: 0;
+  overflow: hidden;
+}
+
+#footer .familySitelist {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 450px;
+  transform: translateY(100%);
+  transition: all 0.2s;
+}
+
+#footer .familySitelist li {
+  width: 200px;
+  height: 50px;
+  background-color: #d50037;
+}
+
+#footer .familySitelist li:hover {
+  background-color: white;
+}
+
+#footer .familySitelist li .link {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 50px;
+  padding-left: 10px;
+  user-select: none;
+}
+
+#footer .familySitelist li:hover .link {
+  color: black;
+  font-weight: 600;
+}
+
+#footer .footerSnsLink {
+  display: inline-flex;
+  gap: 15px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+#footer .footerSnsLink img {
+  width: 40px;
+  height: 40px;
+}
+
+#footer .awardList {
+  display: inline-flex;
+  gap: 15px;
+  position: absolute;
+  top: 50%;
+  left: calc(100% - 205px);
+  transform: translateY(30px);
+}
+
+
+/* 1250 미디어 쿼리 */
+
+@media screen and (max-width: 1251px){
+
+  .container {
+    width: 80%;
+    max-width: 1000px;
+  }
+
+  /* 1250 내비 */
+  #navi .naviList li:last-of-type{
+    display: none;
+  }
+
+  /* 1250 매장 찾기 */
+  #findPascucci{
+    height: 340px;
+  }
+  #findPascucci .searchForm h2{
+    padding: 75px 0 20px 0;
+  }
+
+  /* 1250 메뉴 */
+  #menu{
+    height: 625px;
+  }
+  #menu .menuList li:not(:last-of-type){
+    height: 300px;
+  }
+
+  /* 1250 유튜브 */
+  #youtubeChannel{
+    height: 600px;
+  }
+  #youtubeChannel .videoList li:not(:last-of-type){
+    height: 200px;
+  }
+
+  /* 1250 인스타 */
+  #instagram{
+    height: 700px;
+  }
+  #instagram .instaList li{
+    width: 250px;
+    height: 250px;
+  }
+  #instagram .instaList li a::after{
+    width: 250px;
+    height: 250px;
+  }
+
+}
+
+/* 1077 미디어 쿼리 */
+
+@media screen and (max-width: 1078px){
+
+  .container{
+    width: 80%;
+    max-width: 800px;
+  }
+  .title{
+    font-size: 10rem;
+  }
+
+  /* 1077 내비 */
+  #navi .naviList{
+    height: 80px;
+  }
+  #navi .naviList li:nth-of-type(5){
+    display: none;
+  }
+  #navi:hover{
+    height: 80px;
+  }
+  #navi .naviList .naviListDepth2{
+    display: none;
+  }
+
+  /* 1077 배너 */
+  #mainBanner .bannerControl{
+    transform:translateY(-160%);
+  }
+
+  /* 1077 매장 찾기 */
+  #findPascucci{
+    height: 250px;
+  }
+  #findPascucci .searchForm h2{
+    padding: 50px 0 10px 0;
+  }
+  #findPascucci .searchForm input{
+    width: 350px;
+  }
+  #findPascucci .searchForm button{
+    transform: translateX(125px);
+  }
+  
+  /* 1077 메뉴 */
+  #menu .menuList li:not(:last-of-type){
+    height: 250px;
+  }
+
+  /* 1077 유튜브 */
+  #youtubeChannel{
+    height: 650px;
+  }
+  #youtubeChannel .videoList li:nth-of-type(2),
+  #youtubeChannel .videoList li:nth-of-type(3){
+    display: none;
+  }
+  #youtubeChannel .videoList li:first-of-type{
+    width: 100%;
+    height: 275px;
+  }
+  #youtubeChannel .videoList li iframe{
+    width: 489px;
+    max-width: none;
+  }
+
+  /* 1077 인스타 */
+  #instagram{
+    height: 1000px;
+  }
+  #instagram .instaList{
+    flex-flow: row wrap;
+  }
+  #instagram .instaList li,
+  #instagram .instaList li a::after{
+    width: 300px;
+    height: 300px;
+  }
+
+  /* 1077 푸터 */
+  #footer #familySite~label,
+  #footer .familySiteListContainer{
+    display: none;
+  }
+  #footer .footerLink{
+    flex-wrap: wrap;
+    transform: translateY(-100px);
+  }
+}
+
+/* 768 미디어 쿼리 */
+@media screen and (max-width: 769px){
+
+  .title{
+    font-size: 8rem;
+  }
+
+  /* 768 내비 */
+  #header .headerSnsLink,
+  #mainBanner{
+    display: none;
+  }
+  #navi{
+    height: 50px;
+    overflow: hidden;
+  }
+  #navi:hover{
+    height: 50px;
+  }
+  #navi #mainLogo a img{
+    margin: 0;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  #navi .naviList{
+    flex-flow: column nowrap;
+    width: 100%;
+    height:250px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #navi .naviList li{
+    width: 100%;
+  }
+  #navi .naviList > li > a{
+    line-height: 50px;
+    height: 50px;
+  }
+
+  /* 내비 햄버거 */
+  #hamburgerButton ~ label{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30px;
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 5%;
+    cursor: pointer;
+  }
+  #hamburgerButton ~ label span{
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: white;
+    transition: all 0.4s;
+  }
+
+  /* 햄버거 애니메이션 */
+  #hamburgerButton ~ label.active span:nth-of-type(1){
+    transform: translateY(13.5px) rotate(-45deg);
+  } 
+  #hamburgerButton ~ label.active span:nth-of-type(2){
+    opacity: 0;
+  } 
+  #hamburgerButton ~ label.active span:nth-of-type(3){
+    transform: translateY(-13.5px) rotate(45deg);
+  }
+
+  /* 박스 */
+  #headerPlaceholder{
+    height: 50px;
+  }
+
+  /* 768 메뉴 */
+  #menu{
+    height: 1700px;
+  }
+  #menu .menuList{
+    flex-flow: column nowrap;
+    margin-top: 50px;
+  }
+  #menu .menuList li:not(:last-of-type){
+    width: 100%;
+    max-width: 500px;
+    height: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  #menu .menuList li:last-of-type{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform: none;
+  }
+  #menu .menuList li:last-of-type .link{
+    font-size: 3rem;
+  }
+
+  /* 768 유튜브 */
+  #youtubeChannel{
+    display: none;
+  }
+
+  /* 768 인스타 */
+  #instagram{
+    height: 850px;
+  }
+  #instagram h4{
+    font-size: 3rem;
+  }
+  #instagram .instaList li,
+  #instagram .instaList li a::after{
+    width: 250px;
+    height: 250px;
+  }
+
+  /* 768 푸터 */
+  #footer .footerSnsLink,
+  #footer .awardList{
+    display: none;
+  }
+
+}
+
+/* 620 미디어 쿼리 */
+
+@media screen and (max-width: 621px){
+
+  .title{
+    font-size: 6rem;
+  }
+
+  /* 620 인스타 */
+  #instagram{
+    height: 1600px;
+  }
+  #instagram .instaList li,
+  #instagram .instaList li a::after{
+    width: 300px;
+    height: 300px;
+  }
+
+  /* 620 푸터 */
+  #footer .footerLink{
+    display: none;
+  }
+  #footer .address{
+    transform: translateY(-100%);
+  }
+}
+
+/* 550 미디어 쿼리 */
+@media screen and (max-width: 551px){
+
+  /* 550 매장 찾기 */
+  #findPascucci .searchForm input{
+    width: 200px;
+    height: 40px;
+    left: calc(50% - 42.5px);
+    font-size: 1.2rem;
+  }
+  #findPascucci .searchForm button{
+    width: 75px;
+    height: 40px;
+    transform: translateX(57.5px);
+  }
+
+  /* 550 메뉴 */
+  #menu .menuList li:not(:last-of-type){
+    height: 400px;
+  }
+
+}
+
+/* 450 미디어 쿼리 */
+@media screen and (max-width: 451px){
+
+  .title{
+    font-size: 4rem;
+  }
+  /* 450 메뉴 */
+  #menu{
+    height: 1300px;
+    padding: 50px 0;
+  }
+  #menu .menuList li:not(:last-of-type){
+    height: 325px;
+  }
+
+  /* 450 인스타 */
+  #instagram{
+    height: 1450px;
+    padding: 50px 0;
+  }
+  #instagram h4{
+    font-size: 2rem;
+    word-break: keep-all;
+  }
+
+  /* 450 푸터 */
+  #footer .footerLogo{
+    display: none;
+  }
+  #footer .address,
+  #footer .copyright{
+    left: 0;
+  }
+
+}
+
+/* 340 미디어 쿼리 */
+@media screen and (max-width: 341px){
+
+  .title{
+    font-size: 3.5rem; 
+  }
+  
+  /* 340 메뉴 */
+  #menu{
+    height: 1150px;
+  }
+  #menu .menuList li:not(:last-of-type){
+    height: 275px;
+  }
+
+  /* 340 인스타 */
+  #instagram{
+    height: 1200px;
+  }
+  #instagram h3{
+    margin-bottom: 3rem;
+  }
+  #instagram h4{
+    display: none;
+  }
+  #instagram .instaList li,
+  #instagram .instaList li a::after{
+    width: 250px;
+    height: 250px;
+  }
+
+}
