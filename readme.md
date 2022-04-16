@@ -8,4 +8,4 @@
 <br>
 ↓ 이미지로 미리보기 ↓
 
-![이미지로 미리보기](img/readme.png)
+![이미지로 미리보기](img/readme_ver2.png)

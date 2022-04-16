@@ -10,11 +10,9 @@ window.addEventListener("load", function () {
   }, 3000);
   setTimeout(() => {
     loader.style.opacity = "0";
+    window.scrollTo(0, 0);
   }, 4500);
   setTimeout(() => {
     loader.style.display = "none";
   }, 5000);
-  setTimeout(() => {
-    window.scrollTo(0,0);
-  }, 4500);
 });
