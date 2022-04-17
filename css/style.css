@@ -40,6 +40,9 @@ a{
 a:hover,  a:focus, a:active{
   cursor: url("../img/mouse_pointer.png"), auto;
 }
+p{
+  word-break:keep-all;
+}
 #music:hover, #music:focus, #music:active{
   cursor: url("../img/mouse_music.png"), auto;
 }
@@ -89,9 +92,12 @@ a:hover,  a:focus, a:active{
   border: 2px solid white;
 }
 #music img{
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
+  object-fit: cover;
   animation-name: LProtate;
   animation-duration: 3s;
   animation-timing-function: linear;
@@ -129,6 +135,7 @@ a:hover,  a:focus, a:active{
 /* 로딩화면 */
 #loadingScreen{
   font-size: 5rem;
+  white-space: nowrap;
   width: 100%;
   height: 100vh;
   background-color: #4e0296;
@@ -152,7 +159,7 @@ a:hover,  a:focus, a:active{
   transform: translate(-50%,50%);
 }
 #loadingScreen::after{
-  content:"=＾● ⋏ ●＾=";
+  content:"= ＾● ⋏ ●＾ =";
   font-size: 100px;
   line-height: 100px;
   opacity: 0.4;
@@ -278,8 +285,6 @@ a:hover,  a:focus, a:active{
   display: inline-block;
   font-size: 2rem;
   letter-spacing: 3px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   width: 40%;
   padding-left: 20px;
   position: absolute;
@@ -287,6 +292,7 @@ a:hover,  a:focus, a:active{
 #profile .name{
   font-size: 3rem;
   line-height: 4rem;
+  white-space: nowrap;
   width: 40%;
   padding-left: 20px;
   position: absolute;
@@ -294,18 +300,20 @@ a:hover,  a:focus, a:active{
   right: 0;
 }
 #profile .profile{
-  line-height: 40px;
+  line-height: 4rem;
   white-space: nowrap;
-  height: 160px;
+  height: 16rem;
   top: 4rem;
   right: 0;
 }
 #profile .selfIntroduction{
-  line-height: 30px;
+  line-height: 3rem;
   font-weight: 400;
   height: 190px;
   top: 21rem;
   right: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #profile::after{
   content:"?";
@@ -387,6 +395,7 @@ a:hover,  a:focus, a:active{
 #skills .skillList li h3{
   font-size: 2.5rem;
   margin: 15px 0 ;
+  white-space: nowrap;
 }
 #skills .skillList li p{
   font-size: 2rem;
@@ -406,6 +415,7 @@ a:hover,  a:focus, a:active{
   animation-name: pointMove;
   animation-duration: 3s;
   animation-iteration-count: infinite;
+  z-index: -99;
 }
 @keyframes pointMove{
   from{
@@ -503,7 +513,7 @@ a:hover,  a:focus, a:active{
   transform: translate(-50%,-65%);
   z-index: -99;
   animation-name: mailColor;
-  animation-duration: 4s;
+  animation-duration: 4.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -541,6 +551,7 @@ a:hover,  a:focus, a:active{
 #address .email:visited{
   color: white;
   font-size: 5rem;
+  white-space: nowrap;
 }
 #address .email::after{
   content: "← click!";
@@ -583,6 +594,7 @@ a:hover,  a:focus, a:active{
   font-size: 5rem;
 }
 #address .comment{
+  text-align: center;
   font-size: 3rem;
   font-weight: 400;
   line-height: 4rem;
@@ -641,6 +653,7 @@ a:hover,  a:focus, a:active{
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  z-index:-99;
 }
 
 /* 푸터 */
@@ -671,4 +684,372 @@ a:hover,  a:focus, a:active{
 }
 #footer a:hover::before{
   content:" ▲ ";
+}
+
+/* 1220 미디어 쿼리 */
+@media screen and (max-width: 1221px) {
+
+  /* 글자 크기 조절 */
+  #portfolio .portfolioList li .infomation,
+  #profile p,
+  #skills .skillList li p,
+  #footer{
+    font-size: 1.6rem;
+  }
+
+  /* 1220 음악 */
+  #music{
+    width: 80px;
+    height: 80px;
+  }
+
+  /* 1220 프로필 */
+  #profile .profileImage{
+    height: 32.5rem;
+  }
+  #profile .profile,
+  #profile .selfIntroduction{
+    line-height: 2.5rem;
+  }
+  #profile .profile{
+    height: 10rem;
+  }
+  #profile .selfIntroduction{
+    height: 18rem;
+    top: 15rem;
+  }
+
+  /* 1220 기술 */
+  #skills .skillList{
+    gap: 0;
+  }
+  #skills .skillList li{
+    width: calc(100%/3);
+  }
+  #skills .skillList li .animationBox{
+    width: 100%;
+  }
+
+  /* 1220 포트폴리오 */
+  #portfolio .portfolioList li .listTitle{
+    line-height: 5rem;
+  }
+  #portfolio .portfolioList li .moreInfo:link,
+  #portfolio .portfolioList li .moreInfo:visited{
+    line-height: 5rem;
+  }
+
+  /* 1220 연락처 */
+  #address .comment{
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  #address .githubCat img{
+    width: 250px;
+    height: 250px;
+  }
+
+}
+
+/* 1000 미디어 쿼리 */
+@media screen and (max-width: 1001px) {
+  
+  /* 1000 기술 */
+  #skills .skillList{
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  #skills .skillList li{
+    width: 80%;
+    height: 300px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 40px;
+  }
+  #skills .skillList li:hover::before{
+    content: " ▶ ";
+    font-size: 180px;
+    line-height: 180px;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #skills .skillList li .animationBox{
+    width: 240px;
+    height: 240px;
+  }
+  #skills .skillList li img{
+    margin: 0;
+  }
+  #skills .skillList:hover li h3::before,
+  #skills .skillList:hover li h3::after{
+    content:"";
+  }
+  #skills .skillList li p{
+    width: calc(100% - 240px);
+  }
+  #skills::before{
+    content: "☜";
+    font-size: 300px;
+    line-height: 300px;
+    opacity: 0.4;
+    position: absolute;
+    top: 300px;
+    left: 90%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    animation-name: pointMove;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    z-index: -99;
+  }
+
+  /* 1000 연락처 */
+  #address .hiddenText{
+    left: 60%;
+  }
+
+  /* 1000 푸터 */
+  #footer, 
+  #footer .container{
+    height: 120px;
+  }
+
+}
+
+/* 830 미디어 쿼리 */
+@media screen and (max-width: 831px) {
+  
+  /* 830 로딩화면  */
+  #loadingScreen{
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  #loadingScreen::before,
+  #loadingScreen::after{
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+
+  /* 830 프로필 */
+  #profile{
+    height: 800px;
+  }
+  #profile .container{
+    height: 100%;
+  }
+  #profile .profileImage{
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+  }
+  #profile .name{
+    display: block;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #profile .profile,
+  #profile .selfIntroduction{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #profile .profile{
+    top: 380px;
+  }
+  #profile .selfIntroduction{
+    top: 500px;
+  }
+
+  /* 830 기술 */
+  #skills .skillList li:hover::before{
+    font-size: 140px;
+    line-height: 140px;
+  }
+
+  /* 830 포트폴리오 */
+  #portfolio .portfolioList li{
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+    text-align: center;
+  }
+  #portfolio .portfolioList li .imgContainer{
+    width: 100%;
+    height: 250px;
+  }
+  #portfolio .portfolioList li .infomation{
+    width: 100%;
+  }
+
+  /* 830 연락처 */
+  #address{
+    height: 400px;
+  }
+  #address .email:link,
+  #address .email:visited{
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+  #address .comment{
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  #address .hiddenText{
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  #address::before{
+    font-size: 400px;
+    line-height: 400px;
+  }
+  #address::after{
+    font-size: 250px;
+    line-height: 250px;
+  }
+
+  /* 830 푸터 */
+  #footer{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  #footer a{
+    display: none;
+  }
+
+}
+
+/* 700 미디어 쿼리 */
+@media screen and (max-width: 701px) {
+  
+  /* 700 인트로 */
+  #introPage .pageTitle{
+    font-size: 3rem;
+    line-height: 5rem;
+  }
+
+  /* 700 기술 */
+  #skills .skillList li{
+    width: 100%;
+    gap: 0;
+  }
+  #skills .skillList li:hover::before{
+    font-size: 80px;
+    line-height: 80px;
+  }
+}
+
+/* 640 미디어 쿼리 */
+@media screen and (max-width: 641px) {
+  
+  /* 640 연락처 */
+  #address .email:link, #address .email:visited{
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  #address .comment{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  /* 640 푸터 */
+  #footer{
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+}
+
+/* 550 미디어 쿼리 */
+@media screen and (max-width: 551px) {
+
+  .pageTitle{
+    font-size: 3.6rem;
+  }
+
+  /* 550 로딩 */
+  #loadingScreen{
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  /* 550 프로필 */
+  #profile .profileImage{
+    width: 100%;
+    height: 250px;
+  }
+  #profile .profileImage::after{
+    font-size: 4rem;
+    line-height: 6rem;
+  }
+  #profile .name{
+    width: 100%;
+  }
+  #profile .profile{
+    letter-spacing: 2px;
+    white-space: normal;
+  }
+  #profile .selfIntroduction{
+    top: 550px;
+  }
+
+
+  /* 550 기술 */
+  #skills .skillList li{
+    flex-flow: column nowrap;
+    height: 500px;
+  }
+  #skills .skillList li:hover::before{
+    content: "";
+  }
+  #skills .skillList li:hover h3::before{
+    content: " ▶ ";
+  }
+  #skills .skillList li:hover h3::after{
+    content: " ◀ ";
+  }
+  #skills .skillList li p{
+    width: 100%;
+  }
+
+  /* 550 포트폴리오 */
+  #portfolio .portfolioList li .moreInfo:link,
+  #portfolio .portfolioList li .moreInfo:visited{
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  
+  
+  /* 550 연락처 */
+  #address .hiddenText{
+    left: 50%;
+  }
+  #address::before{
+    opacity: 0.15;
+  }
+  #address .email:link,
+  #address .email:visited{
+    font-size: 2.4rem;
+  }
+  #address .email::after,
+  #address .email:hover::before,
+  #address .email:hover::after{
+    content: "";
+  }
+  #address .hiddenText{
+    font-size: 2.4rem;
+    left: 35%;
+  }
 }
