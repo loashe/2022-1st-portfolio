@@ -38,7 +38,7 @@ ul,ol,li{
 a{
   text-decoration: none;
 }
-a:hover,  a:focus, a:active{
+a:hover,  a:focus, a:active, .effectOff-label:hover{
   cursor: url("../img/mouse_pointer.png"), auto;
 }
 p{
@@ -49,9 +49,10 @@ p{
 }
 ::selection{
   color: black;
-  background-color: #caef00;
-  text-shadow: none;
+  background-color: #00ff99;
+  /* background-color: #caef00; */
   /* background-color: #FFA09B; */
+  text-shadow: none;
 }
 
 
@@ -73,6 +74,56 @@ p{
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+
+
+/* 로딩화면 */
+#loadingScreen{
+  font-size: 5rem;
+  line-height: 7rem;
+  white-space: nowrap;
+  width: 100%;
+  height: 100vh;
+  background-color: #4e0296;
+  /* background-color:#211f31; */
+  position: fixed;
+  z-index: 99999;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.5s;
+  user-select: none;
+  overflow: hidden;
+}
+#loadingScreen::before{
+  content:"(~˘▾˘)~";
+  font-size: 100px;
+  line-height: 100px;
+  opacity: 0.4;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  transform: translate(-50%,50%);
+}
+#loadingScreen::after{
+  content:"= ＾● ⋏ ●＾ =";
+  font-size: 100px;
+  line-height: 100px;
+  opacity: 0.4;
+  position: absolute;
+  top: 65%;
+  left: 75%;
+  white-space: nowrap;
+  transform: translate(-50%,50%);
+}
+#loadingScreen p{
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3rem;
+  white-space: normal;
 }
 
 
@@ -134,43 +185,58 @@ p{
   margin: 0 25px;
 }
 
-/* 로딩화면 */
-#loadingScreen{
-  font-size: 5rem;
-  white-space: nowrap;
-  width: 100%;
-  height: 100vh;
-  background-color: #4e0296;
-  /* background-color:#211f31; */
+/* 이펙트 옵션 */
+#effectOff{
+  display: none;
+}
+.effectOff-label{
+  text-align: right;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-shadow: 0 0 5px black;
   position: fixed;
-  z-index: 99999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-  user-select: none;
-  overflow: hidden;
+  top: 30px;
+  right: 150px;
+  z-index: 998;
 }
-#loadingScreen::before{
-  content:"(~˘▾˘)~";
-  font-size: 100px;
-  line-height: 100px;
-  opacity: 0.4;
-  position: absolute;
-  top: 15%;
-  left: 20%;
-  transform: translate(-50%,50%);
+.effectOff-label:hover::before{
+  content:" ▶ ";
 }
-#loadingScreen::after{
-  content:"= ＾● ⋏ ●＾ =";
-  font-size: 100px;
-  line-height: 100px;
-  opacity: 0.4;
-  position: absolute;
-  top: 60%;
-  left: 75%;
-  white-space: nowrap;
-  transform: translate(-50%,50%);
+#effectOff:checked ~ #profile::after{
+  color: white;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ section .pageTitle::before,
+#effectOff:checked ~ section  .pageTitle::after{
+  color: #00ff99;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ #portfolio::before{
+  color: white;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ #portfolio::after{
+  color: yellow;
+  opacity: .8;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ #address::before{
+  color: cyan;
+  opacity: .6;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ #address::after{
+  color: magenta;
+  opacity: .7;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ #address .email::after{
+  color: #00ff99;
+  animation-duration: 0s;
+}
+#effectOff:checked ~ #address .email:hover::after{
+  color: white;
+  animation-duration: 0s;
 }
 
 /* 인트로 페이지 */
@@ -813,6 +879,22 @@ p{
   }
 
   /* 1000 연락처 */
+  
+  #address .email:link,
+  #address .email:visited{
+    color: cyan;
+    text-shadow: 2px 2px 0 lightgray;
+    animation-name: mailColor;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  #address .email::before,
+  #address .email::After{
+    content: "  ✉  ";
+    color: white;
+    font-size: 5rem;
+  }
   #address .hiddenText{
     left: 60%;
   }
@@ -838,6 +920,7 @@ p{
     font-size: 5rem;
     line-height: 5rem;
   }
+
 
   /* 830 프로필 */
   #profile{
@@ -938,6 +1021,18 @@ p{
 
 /* 700 미디어 쿼리 */
 @media screen and (max-width: 701px) {
+
+  /* 700 이펙트 옵션 */
+  .effectOff-label{
+    text-align: left;
+    left: 30px;
+  }
+  .effectOff-label:hover::before{
+    content:"";
+  }
+  .effectOff-label:hover::after{
+    content:" ? ";
+  }
   
   /* 700 인트로 */
   #introPage .pageTitle{
@@ -968,6 +1063,12 @@ p{
     font-size: 1.6rem;
     line-height: 2.4rem;
   }
+  #address .email::before,
+  #address .email::after,
+  #address .email:hover::before,
+  #address .email:hover::after{
+    content: "";
+  }
 
   /* 640 푸터 */
   #footer{
@@ -987,6 +1088,11 @@ p{
   #loadingScreen{
     font-size: 2rem;
     line-height: 3rem;
+  }
+  #loadingScreen p{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 400;
   }
 
   /* 550 프로필 */
@@ -1041,16 +1147,11 @@ p{
     left: 50%;
   }
   #address::before{
-    opacity: 0.15;
+    opacity: 0.1;
   }
   #address .email:link,
   #address .email:visited{
     font-size: 2.4rem;
-  }
-  #address .email::after,
-  #address .email:hover::before,
-  #address .email:hover::after{
-    content: "";
   }
   #address .hiddenText{
     font-size: 2.4rem;

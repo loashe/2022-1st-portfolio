@@ -15,7 +15,20 @@
   <!-- 로딩 화면 -->
   <div id="loadingScreen">
     <h1>NOW LOADING...</h1>
+    <p>(반짝이는 이펙트가 많으니 예민하신 분께서는 옵션을 이용해 이펙트를 꺼주세요!)</p>
   </div>
+
+  <!-- 음악 -->
+  <div id="music">
+    <img src="img/music_icon.png" alt="음악 플레이어">
+    <p>MUSIC?</p>
+    <iframe src="https://www.youtube.com/embed/3nlSDxvt6JU" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+
+  <!-- 이펙트 옵션 -->
+  <input id="effectOff" type="checkbox">
+  <label class="effectOff-label" for="effectOff">이펙트 끄기</label>
 
   <!-- 인트로 -->
   <section id="introPage">
@@ -161,14 +174,6 @@
     </div>
   </footer>
 
-  <!-- 음악 -->
-  <div id="music">
-    <img src="img/music_icon.png" alt="음악 플레이어">
-    <p>MUSIC?</p>
-    <iframe src="https://www.youtube.com/embed/3nlSDxvt6JU" title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-  </div>
-
   <!-- 효과음 -->
   <audio id="clickSound" src="audio/click.mp3" preload="auto"></audio>
   <audio id="catSound" src="audio/cat.mp3" preload="auto"></audio>
@@ -176,6 +181,7 @@
   <!-- 자바스크립트 -->
   <script src="js/music.js"></script>
   <script src="js/loading.js"></script>
+  <script src="js/effect.js"></script>
 
 </body>
 
