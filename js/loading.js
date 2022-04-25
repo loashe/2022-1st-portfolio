@@ -1,5 +1,5 @@
 const loader = document.querySelector("#loadingScreen");
-const loaderComment = document.querySelector("#loadingScreen h1");
+const loaderComment = document.querySelector("#loadingScreen h2");
 
 window.addEventListener("load", function () {
   setTimeout(() => {

@@ -61,13 +61,13 @@ p{
   margin:0 auto;
   position: relative;
 }
-.pageTitle{
+.page-title{
   text-align: center;
   font-size: 5rem;
   letter-spacing: 5px;
 }
-.pageTitle::before,
-.pageTitle::after{
+.page-title::before,
+.page-title::after{
   content: " ◇ ";
   color: cyan;
   animation-name: mailColor;
@@ -80,13 +80,12 @@ p{
 
 /* 로딩화면 */
 #loadingScreen{
-  font-size: 5rem;
+  font-size: 6.5rem;
   line-height: 7rem;
   white-space: nowrap;
   width: 100%;
   height: 100vh;
   background-color: #4e0296;
-  /* background-color:#211f31; */
   position: fixed;
   z-index: 99999;
   display: flex;
@@ -129,27 +128,26 @@ p{
 
 /* 음악 */
 #music{
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  top: 30px;
-  right: 30px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
-  z-index:999;
+  position: fixed;
+  top: 0;
+  right: 5%;
+  z-index: 99998;
 }
 #music:hover{
   width: 200px;
-  height: 250px;
-  background-color: #6203bc;
-  /* background-color: #3a316f; */
-  border: 2px solid white;
+  height: 60px;
 }
+#music:hover ~ .effectOff-label{
+  right: calc(5% + 220px);
+}
+
 #music img{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
   object-fit: cover;
   animation-name: LProtate;
   animation-duration: 3s;
@@ -167,22 +165,15 @@ p{
 #music:hover img{
   display: none;
 }
-#music p{
-  font-size: 2.5rem;
-  text-align: center;
-  display: none;
-}
-#music:hover p{
-  display: block;
-}
 #music iframe{
   opacity: 0;
 }
 #music:hover iframe{
   opacity: 1;
-  width: 150px;
-  height: 150px;
-  margin: 0 25px;
+  width: 200px;
+  height: 50px;
+  margin: 5px 0;
+  border: none;
 }
 
 /* 이펙트 옵션 */
@@ -190,14 +181,13 @@ p{
   display: none;
 }
 .effectOff-label{
+  font-size: 2.4rem;
+  line-height: 6rem;
   text-align: right;
-  font-size: 2.5rem;
-  line-height: 4rem;
-  text-shadow: 0 0 5px black;
   position: fixed;
-  top: 30px;
-  right: 150px;
-  z-index: 998;
+  top: 0;
+  right: calc(5% + 80px);
+  z-index: 99998;
 }
 .effectOff-label:hover::before{
   content:" ▶ ";
@@ -206,8 +196,8 @@ p{
   color: white;
   animation-duration: 0s;
 }
-#effectOff:checked ~ section .pageTitle::before,
-#effectOff:checked ~ section  .pageTitle::after{
+#effectOff:checked ~ section .page-title::before,
+#effectOff:checked ~ section .page-title::after{
   color: #00ff99;
   animation-duration: 0s;
 }
@@ -239,6 +229,46 @@ p{
   animation-duration: 0s;
 }
 
+/* 내비 */
+#navi{
+  font-size: 2.4rem;
+  line-height: 6rem;
+  width: 100%;
+  height: 60px;
+  padding: 0 5%;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  user-select: none;
+  z-index: 9999;
+}
+#navi #naviList{
+  display: flex;
+}
+#navi #naviList li:not(:last-of-type)::after{
+  content: "＊";
+  margin: 0 20px;
+}
+#navi #naviList li a:link,
+#navi #naviList li a:visited{
+  color: white;
+}
+#navi #naviList li a:hover{
+  color: cyan;
+  animation-name: mailColor;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+#navi #naviETC{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 /* 인트로 페이지 */
 #introPage{
   width: 100%;
@@ -253,7 +283,7 @@ p{
   background-attachment: fixed;
   text-shadow: 0 0 10px black;
 }
-#introPage .pageTitle{
+#introPage .page-title{
   color: white;
   opacity: 1;
   animation-name: titleIntro;
@@ -270,8 +300,8 @@ p{
     transform: translateY(0%);
   }
 }
-#introPage .pageTitle::before,
-#introPage .pageTitle::after{
+#introPage .page-title::before,
+#introPage .page-title::after{
   content: "";
 }
 #introPage p{
@@ -505,70 +535,162 @@ p{
   margin: 100px 0;
   position: relative;
 }
-#portfolio .portfolioList{
-  width: 80%;
-  height: 450px;
+#portfolio .portfolio-list-wrap{
+  width: 800px;
+  height: 456px;
+  background-color: black;
   border: 3px solid white;
-  background-color: #6203bc;
-  /* background-color: #3a316f; */
   margin: 0 auto;
-  overflow-y:scroll;
+  overflow:hidden;
 }
-#portfolio .portfolioList::-webkit-scrollbar{
-  width: 10px;
-  background-color: rgba(0,0,0,.2);
+#portfolio .portfolioList{
+  width: 600px;
+  height: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
-#portfolio .portfolioList::-webkit-scrollbar-thumb{
-  background-color: rgba(255,255,255,.6);
+#portfolio .portfolioList #listHome{
+  display: flex;
+  flex-flow: row wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+#listHome .img-preview{
+  order: 5;
+}
+#listHome a:nth-of-type(1){
+  order: 3;
+}
+#listHome a:nth-of-type(2){
+  order: 4;
+}
+#listHome a:nth-of-type(3){
+  order: 1;
+}
+#listHome a:nth-of-type(4){
+  order: 2;
+}
+.portfolioList #listHome .moreInfo:link,
+.portfolioList #listHome .moreInfo:visited{
+  width: 45%;
+  height: 10%;
+  text-align: left;
+}
+.portfolioList #listHome .img-preview{
+  width: 80%;
+  height: 60%;
+  border: 1px solid white;
+  flex-shrink: 0;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.portfolioList #listHome .img-preview::after{
+  content:"?";
+  text-align: center;
+  font-size: 150px;
+  line-height: 268px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, red, red 12.5%, orange 12.5%, orange 25%,yellow 25%, yellow 37.5%, yellowgreen 37.5%, yellowgreen 50%,green 50%, green 62.5%, blue 62.5%, blue 75%, navy 75%, navy 87.5%, purple 87.5%, purple);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#listHome a:hover ~ .img-preview::after{
+  display: none;
 }
 #portfolio .portfolioList li{
+  background-color: #6203bc;
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: start;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
-  height: 400px;
+  height: 450px;
   border-bottom: 1px solid black;
+  flex-shrink: 0;
+  position: relative;
 }
-#portfolio .portfolioList li .imgContainer{
+#portfolio .portfolioList li:not(:first-of-type) .imgContainer{
   display: inline-block;
   width: 50%;
-  height: 100%;
+  height: 50%;
   position: relative;
 }
 .imgContainer img{
   width: 100%;
   height: 100%;
   object-fit: contain;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.2s;
 }
-.imgContainer img:first-of-type{
-  z-index: 10;
-}
-.portfolioList li:hover > .imgContainer img:first-of-type{
-  opacity: 0;
-}
-#portfolio .portfolioList li .listTitle{
+#portfolio .portfolioList li:not(:first-of-type) .listTitle{
   font-size: 2.4rem;
+  line-height: 4rem;
+  width: 50%;
+  height: 25%;
+  display: flex;
+  padding-left: 20px;
+  align-items: flex-end;
 }
 #portfolio .portfolioList li .moreInfo:link,
 #portfolio .portfolioList li .moreInfo:visited{
   color: white;
   font-size: 2.2rem;
 }
+#portfolio .portfolioList li:not(:first-of-type) .moreInfo:link,
+#portfolio .portfolioList li:not(:first-of-type) .moreInfo:visited{
+  width: 50%;
+  height: 25%;
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+}
 #portfolio .portfolioList li .moreInfo:hover::before{
   content:"▶ ";
   padding-right: 0.5rem;
 }
-#portfolio .portfolioList li .infomation{
+#portfolio .portfolioList li:not(:first-of-type) .infomation{
   font-size: 2rem;
   letter-spacing: 2px;
   line-height: 2.5rem;
   font-weight: 400;
-  width: 45%;
+  width: 100%;
+  height: 40%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+#portfolio .portfolioList li .home-anchor{
+  color: white;
+  font-size: 2.2rem;
+  font-size: 2rem;
+  width: 200px;
+  height: 10%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: absolute;
+  top: 90%;
+  right: 0;
+}
+#portfolio .portfolioList li .home-anchor::before{
+  content: " ← ";
+  padding-right: 10px;
+}
+#portfolio .portfolioList li .home-anchor:hover::before{
+  padding-right: 20px;
 }
 #portfolio::before{
   content: "◇";
@@ -801,9 +923,6 @@ p{
   }
 
   /* 1220 포트폴리오 */
-  #portfolio .portfolioList li .listTitle{
-    line-height: 5rem;
-  }
   #portfolio .portfolioList li .moreInfo:link,
   #portfolio .portfolioList li .moreInfo:visited{
     line-height: 5rem;
@@ -823,6 +942,11 @@ p{
 
 /* 1000 미디어 쿼리 */
 @media screen and (max-width: 1001px) {
+
+  /* 1000 내비 */
+  #navi #naviList{
+    display: none;
+  }
   
   /* 1000 기술 */
   #skills .skillList{
@@ -876,6 +1000,21 @@ p{
     animation-duration: 3s;
     animation-iteration-count: infinite;
     z-index: -99;
+  }
+
+  /* 1000 포트폴리오 */
+  #portfolio .portfolioList li:not(:first-of-type) .listTitle{
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  #portfolio .portfolioList li .moreInfo:link,
+  #portfolio .portfolioList li .moreInfo:visited{
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+  #portfolio .portfolioList li:not(:first-of-type) .infomation{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 
   /* 1000 연락처 */
@@ -967,19 +1106,20 @@ p{
   }
 
   /* 830 포트폴리오 */
+  #portfolio .portfolio-list-wrap{
+    width: 600px;
+    height: 343.5px;
+  }
+  #portfolio .portfolioList{
+    width: 450px;
+    height: 337.5px;
+  }
   #portfolio .portfolioList li{
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-around;
-    height: 500px;
-    text-align: center;
+    height: 337.5px;
   }
-  #portfolio .portfolioList li .imgContainer{
-    width: 100%;
-    height: 250px;
-  }
-  #portfolio .portfolioList li .infomation{
-    width: 100%;
+  #portfolio .portfolioList li .moreInfo:link,
+  #portfolio .portfolioList li .moreInfo:visited{
+    font-size: 1.6rem;
   }
 
   /* 830 연락처 */
@@ -1035,7 +1175,7 @@ p{
   }
   
   /* 700 인트로 */
-  #introPage .pageTitle{
+  #introPage .page-title{
     font-size: 3rem;
     line-height: 5rem;
   }
@@ -1053,6 +1193,74 @@ p{
 
 /* 640 미디어 쿼리 */
 @media screen and (max-width: 641px) {
+
+  /* 640 포트폴리오 */
+  #portfolio .portfolio-list-wrap{
+    width: 356px;
+    height: 456px;
+  }
+  #portfolio .portfolioList{
+    width: 300px;
+    height: 450px;
+  }
+  #portfolio .portfolioList #listHome{
+    width: 300px;
+    height: 450px;
+  }
+  .portfolioList #listHome .img-preview{
+    width: 250px;
+    height: 250px;
+  }
+  #portfolio .portfolioList #listHome .moreInfo:link,
+  #portfolio .portfolioList #listHome .moreInfo:visited{
+    text-align: center;
+    width: 100%;
+  }
+  #listHome a:nth-of-type(1){
+    order: 4;
+  }
+  #listHome a:nth-of-type(2){
+    order: 3;
+  }
+  #listHome a:nth-of-type(3){
+    order: 2;
+  }
+  #listHome a:nth-of-type(4){
+    order: 1;
+  }
+  #portfolio .portfolioList li{
+    width: 300px;
+    height: 450px;
+  }
+  #portfolio .portfolioList li:not(:first-of-type) .imgContainer{
+    width: 100%;
+    height: 40%;
+  }
+  #portfolio .portfolioList li:not(:first-of-type) .listTitle{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+  }
+  #portfolio .portfolioList li:not(:first-of-type) .moreInfo:link,
+  #portfolio .portfolioList li:not(:first-of-type) .moreInfo:visited{
+    width: 100%;
+    height: 10%;
+    top: 50%;
+    left: 0;
+  }
+  #portfolio .portfolioList li:not(:first-of-type) .infomation{
+    font-size: 1.4rem;
+    line-height: 2rem;
+    width: 100%;
+    height: 30%;
+    top: 60%;
+    left: 0;
+  }
+  #portfolio .portfolioList li .home-anchor{
+    font-size: 1.6rem;
+  }
   
   /* 640 연락처 */
   #address .email:link, #address .email:visited{
@@ -1080,7 +1288,7 @@ p{
 /* 550 미디어 쿼리 */
 @media screen and (max-width: 551px) {
 
-  .pageTitle{
+  .page-title{
     font-size: 3.6rem;
   }
 
@@ -1135,6 +1343,9 @@ p{
   }
 
   /* 550 포트폴리오 */
+  #portfolio .portfolio-list-wrap{
+    width: 306px;
+  }
   #portfolio .portfolioList li .moreInfo:link,
   #portfolio .portfolioList li .moreInfo:visited{
     font-size: 2rem;
